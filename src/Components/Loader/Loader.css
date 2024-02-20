@@ -1,0 +1,88 @@
+.hidden {
+    display: none !important;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Poppins", "Arial", sans-serif;
+    font-size: 16px;
+    animation: 5s linear fade-loader;
+    animation-iteration-count: 1;
+}
+
+.loader svg {
+    text-transform: capitalize;
+    width: 20em;
+    font-weight: 700;
+}
+
+.loader svg text.text-up,
+.loader svg text.text-down {
+    font-size: 5rem;
+    stroke-width: 2;
+    letter-spacing: -6px;
+    animation: 5s linear animate-stroke;
+    animation-iteration-count: 1;
+}
+
+@keyframes animate-stroke {
+    0% {
+        fill: transparent;
+        stroke: #f0f0f0;
+        stroke-width: 3;
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 32%;
+    }
+
+    25% {
+        fill: transparent;
+        stroke: #f0f0f0;
+        stroke-width: 3;
+    }
+
+    50% {
+        fill: #f0f0f0;
+        stroke: transparent;
+        stroke-width: 0;
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 32% 0;
+    }
+
+    75% {
+        fill: transparent;
+        stroke: #f0f0f0;
+        stroke-width: 3;
+    }
+
+    100% {
+        fill: transparent;
+        stroke: #f0f0f0;
+        stroke-width: 3;
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 32%;
+    }
+}
+
+@keyframes fade-loader {
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
