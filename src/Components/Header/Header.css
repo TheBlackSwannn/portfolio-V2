@@ -50,43 +50,68 @@ nav ul li a.active {
 }
 
 header .button {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    color: #c6c6c6;
+    color: #dedede;
     margin-right: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #770271b0;
+    border: 1px solid #c6c6c6;
     border-radius: 0.5rem;
-    transition: background-color .15s ease-in-out;
 }
 
-header .button.animated {
-    animation: 0.5s ease-in-out 0s 1 shake;
+header .button span {
+    animation: lighting 5000ms alternate infinite ease;
 }
 
 header .button:hover {
-    background-color: #770271;
+    box-shadow: 0 0 5px #ffffff, 0 0 3px #9a9a9a;
 }
 
-@keyframes shake {
-    0% {
-        transform: rotate(0deg);
-    }
+header .button:hover span {
+    animation: none !important;
+    color: #ffffff !important;
+}
 
-    25% {
-        transform: rotate(10deg);
-    }
+@keyframes lighting {
 
-    50% {
-        transform: rotate(-10deg);
-    }
-
-    75% {
-        transform: rotate(10deg);
+    0%,
+    85% {
+        color: #b4b4b4;
+        /* text-shadow: none; */
     }
 
     100% {
-        transform: rotate(0deg);
+        color: #ffffff;
+        /* text-shadow: 0 0 5px #ffffff, 0 0 3px #9a9a9a; */
     }
+}
+
+.button span:nth-child(1) {
+    animation-delay: 150ms;
+}
+
+.button span:nth-child(2) {
+    animation-delay: 300ms;
+}
+
+.button span:nth-child(3) {
+    animation-delay: 450ms;
+}
+
+.button span:nth-child(4) {
+    animation-delay: 600ms;
+}
+
+.button span:nth-child(5) {
+    animation-delay: 750ms;
+}
+
+.button span:nth-child(6) {
+    animation-delay: 900ms;
+}
+
+.button span:nth-child(7) {
+    animation-delay: 1050ms;
 }

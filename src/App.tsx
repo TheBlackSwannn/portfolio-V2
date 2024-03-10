@@ -1,14 +1,19 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Landing from './Components/Landing'
-import ErrorPage from './Components/ErrorPage'
+import Landing from './Pages/Landing'
+import ErrorPage from './Pages/ErrorPage'
+import Layout from './Pages/Layout'
+import Projects from './Pages/Projects'
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Landing />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
       </Routes>
     </Router>
   )

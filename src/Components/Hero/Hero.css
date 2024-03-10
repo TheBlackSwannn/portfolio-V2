@@ -1,0 +1,38 @@
+.content {
+    color: white;
+}
+
+.content h1 {
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.content p {
+    font-size: 1.2rem;
+    height: 1.2rem;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+}
+
+.ball {
+    pointer-events: none;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgb(215, 215, 215);
+    animation: implode 1.5s ease-in-out;
+    animation-fill-mode: both;
+    opacity: .035;
+    background-blend-mode: multiply;
+    z-index: -1;
+}
+
+@keyframes implode {
+    100% {
+        transform: scale(0)
+    }
+}

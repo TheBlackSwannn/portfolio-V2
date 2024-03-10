@@ -1,13 +1,8 @@
-import Header from "./Header/Header";
-import Loader from "./Loader/Loader";
-import anim_bg from "../assets/anim_bg.mp4";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import './Hero.css'
 
-const Landing = () => {
-
-    const video = useRef<HTMLVideoElement>(null);
+function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     const typewrite = useRef<HTMLParagraphElement>(null);
-    const main = useRef<HTMLDivElement>(null);
 
     const subtitles = [
         'Fullstack Web Developer',
@@ -31,23 +26,15 @@ const Landing = () => {
     }, []);
 
     useEffect(() => {
-        if (video.current) {
-            video.current.playbackRate = 0.5;
-        }
-    }, [video]);
-
-    useEffect(() => {
         writeText(subtitles[index]);
     }, [typewrite]);
 
     function handleMouseMove(e: MouseEvent) {
         setTimeout(() => {
             var range = 1;
-            var sizeInt = 50;
+            var sizeInt = 30;
             var size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
-
             var left = "left: " + getRandomInt(e.clientX - range - sizeInt, e.clientX + range) + "px;";
-
             var top = "top: " + getRandomInt(e.clientY - range - sizeInt, e.clientY + range) + "px;";
             var ball = document.createElement("div");
 
@@ -56,15 +43,17 @@ const Landing = () => {
             ball.onanimationend = function () {
                 ball.remove();
             };
-            if (main.current)
-                main.current.appendChild(ball);
+
+            if (parent.current)
+                parent.current.appendChild(ball);
         }, 100);
     };
 
     async function writeText(text: string) {
         if (typewrite.current) {
             for (let i = 0; i < text.length; i++) {
-                typewrite.current.innerHTML += text.charAt(i);
+                if (typewrite.current)
+                    typewrite.current.innerHTML += text.charAt(i);
                 await sleep(50);
             }
             setTimeout(eraseText, 3000, text);
@@ -74,7 +63,8 @@ const Landing = () => {
     async function eraseText(text: string) {
         if (typewrite.current) {
             for (let i = 0; i <= text.length; i++) {
-                typewrite.current.innerHTML = text.substring(0, text.length - i);
+                if (typewrite.current)
+                    typewrite.current.innerHTML = text.substring(0, text.length - i);
                 await sleep(30);
             }
             index++;
@@ -82,29 +72,18 @@ const Landing = () => {
         }
     }
 
-    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
     function getRandomInt(min: number, max: number) {
         return Math.round(Math.random() * (max - min + 1)) + min;
     }
 
+    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
     return (
-        <>
-            {/* <Loader /> */}
-            <div ref={main} className="main">
-                <Header />
-                <video ref={video} autoPlay muted loop id="myVideo">
-                    <source src={anim_bg} type="video/mp4" />
-                </video>
-
-                <div className="content">
-                    <h1>SWAN FRERE</h1>
-                    <p ref={typewrite}></p>
-                </div>
-                <div className="ball"></div>
-            </div>
-        </>
+        <div className="content">
+            <h1>SWAN FRERE</h1>
+            <p ref={typewrite}></p>
+        </div>
     );
-};
+}
 
-export default Landing;
+export default Hero;
