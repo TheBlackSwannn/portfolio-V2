@@ -17,6 +17,30 @@
     letter-spacing: .15em;
 }
 
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.actions a {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    background-color: #f50057;
+    transition: background-color .3s;
+}
+
+.actions a span i {
+    margin-left: .5rem;
+
+}
+
 .ball {
     pointer-events: none;
     position: absolute;

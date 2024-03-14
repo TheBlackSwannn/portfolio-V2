@@ -1,8 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import './Hero.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
+    const [addBall, _setAddBall] = useState(false);
+
     const typewrite = useRef<HTMLParagraphElement>(null);
+    const addBallRef = useRef(addBall);
+
+    const setAddBall = (value: boolean) => {
+        addBallRef.current = value;
+        _setAddBall(value);
+    }
 
     const subtitles = [
         'Fullstack Web Developer',
@@ -30,6 +40,7 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     }, [typewrite]);
 
     function handleMouseMove(e: MouseEvent) {
+        console.log(addBallRef.current);
         setTimeout(() => {
             var range = 1;
             var sizeInt = 30;
@@ -44,8 +55,15 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
                 ball.remove();
             };
 
-            if (parent.current)
-                parent.current.appendChild(ball);
+            if (parent.current) {
+                if (!addBallRef.current) {
+                    parent.current.appendChild(ball);
+                    setAddBall(true);
+                    setTimeout(() => {
+                        setAddBall(false);
+                    }, 30);
+                }
+            }
         }, 100);
     };
 
@@ -82,6 +100,10 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
         <div className="content">
             <h1>SWAN FRERE</h1>
             <p ref={typewrite}></p>
+            <div className="actions">
+                <a className="hire" href=""><span>Hire Me<i><FontAwesomeIcon icon={faArrowRight} /></i></span></a>
+                <a className="explore" href=""><span>Explore<i><FontAwesomeIcon icon={faArrowRight} /></i></span></a>
+            </div>
         </div>
     );
 }
