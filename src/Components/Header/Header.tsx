@@ -12,7 +12,7 @@ function Header() {
                     { label: "About", href: "/about", target: "_self" },
                 ]
             } />
-            <Button label="Interactive CV" href="/interactive-cv" />
+            <Button href="mailto:frereswan@gmail.com" />
         </header>
     );
 }

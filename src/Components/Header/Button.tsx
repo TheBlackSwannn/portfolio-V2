@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function Button({ label, href }: { label: string; href: string; }) {
+function Button({ href }: { href: string; }) {
     return (
         <NavLink to={href} className="button shine">
             <span>C</span>

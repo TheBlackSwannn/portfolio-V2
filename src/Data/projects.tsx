@@ -14,7 +14,7 @@ const projects = [
             ],
             isOdd: false,
             scroll: false,
-            setScroll: (scroll: boolean) => { },
+            setScroll: () => { },
         },
         {
             index: 1,
@@ -31,7 +31,7 @@ const projects = [
             ],
             isOdd: true,
             scroll: false,
-            setScroll: (scroll: boolean) => { },
+            setScroll: () => { },
         },
         {
             index: 2,
@@ -49,7 +49,7 @@ const projects = [
             ],
             isOdd: false,
             scroll: false,
-            setScroll: (scroll: boolean) => { },
+            setScroll: () => { },
         },
     ];
 
