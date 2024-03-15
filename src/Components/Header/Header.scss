@@ -115,3 +115,25 @@ header {
         /* text-shadow: 0 0 5px #ffffff, 0 0 3px #9a9a9a; */
     }
 }
+
+@media (max-width: 600px) {
+    header {
+        height: 4rem;
+        padding: 0 1rem;
+
+        nav {
+            margin: auto;
+            ul {
+                li {
+                    a {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+
+        .button {
+            display: none;
+        }
+    }
+}

@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import useWindowDimensions from '../../Hooks/getWindowDimensions';
-import './Gallery.scss';
+import './Project.scss';
 
-function Gallery({ index, title, images, technos, isOdd = false, scroll, setScroll }: { index: number, title: string, images: Array<string>, technos: Array<Techno>,isOdd: boolean, scroll: boolean, setScroll: (scroll: boolean) => void }) {
-    const galleryRef = useRef<HTMLDivElement>(null);
+function Project({ index, title, images, technos, isOdd = false, scroll, setScroll }: { index: number, title: string, images: Array<string>, technos: Array<Techno>,isOdd: boolean, scroll: boolean, setScroll: (scroll: boolean) => void }) {
+    const projectRef = useRef<HTMLDivElement>(null);
     const { height } = useWindowDimensions();
     const [isVisible, setIsVisible] = useState(false);
 
     function update() {
-        if (galleryRef.current) {
-            const pos = galleryRef.current.getBoundingClientRect();
+        if (projectRef.current) {
+            const pos = projectRef.current.getBoundingClientRect();
             if (pos.y / height < 0.75) {
                 setIsVisible(true);
             }
@@ -24,7 +24,7 @@ function Gallery({ index, title, images, technos, isOdd = false, scroll, setScro
     }, [scroll]);
 
     return (
-        <div ref={galleryRef} className="gallery" style={{
+        <div ref={projectRef} className="project" style={{
             opacity: !isVisible && index !== 0 ? 0 : 1,
             position: 'relative',
             left: !isVisible && index !== 0 ? (isOdd ? '-100px' : '100px') : 0,
@@ -50,4 +50,4 @@ function Gallery({ index, title, images, technos, isOdd = false, scroll, setScro
     );
 }
 
-export default Gallery;
+export default Project;

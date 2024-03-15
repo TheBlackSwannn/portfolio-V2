@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Gallery from "../Components/Gallery/Gallery";
+import Project from "../Components/Project/Project";
 import './Pages.css';
 
 function Projects( {projects}: { projects: Array<Project> } ) {
@@ -10,7 +10,7 @@ function Projects( {projects}: { projects: Array<Project> } ) {
     return (
         <div className="main">
             <div className="projects" onScroll={() => setScroll(true)}>
-                {projects.map((projects, i) => <Gallery key={i} index={projects.index} title={projects.title} images={projects.images} technos={projects.technos} isOdd={projects.isOdd} scroll={scroll} setScroll={setScroll} />)}
+                {projects.map((projects, i) => <Project key={i} index={projects.index} title={projects.title} images={projects.images} technos={projects.technos} isOdd={projects.isOdd} scroll={scroll} setScroll={setScroll} />)}
             </div>
         </div>
     );
