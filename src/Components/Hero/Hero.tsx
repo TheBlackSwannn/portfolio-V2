@@ -1,7 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import './Hero.css'
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faSuitcase } from '@fortawesome/free-solid-svg-icons'
+import './Hero.scss'
+
+import av1 from '../../assets/av1.png'
+import av2 from '../../assets/av2.png'
+import av3 from '../../assets/av3.png'
 
 function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     const [addBall, _setAddBall] = useState(false);
@@ -14,6 +18,11 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
         _setAddBall(value);
     }
 
+    const currentAvatar = useMemo(() => {
+        const avatars = [av1, av2, av3];
+        return avatars[Math.floor(Math.random() * 15) % avatars.length];
+    }, []);
+
     const subtitles = [
         'Fullstack Web Developer',
         'ThreeJS Enthusiast',
@@ -24,30 +33,14 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
 
     let index = 0;
 
-    useEffect(() => {
-        window.addEventListener('mousemove', handleMouseMove);
-
-        return () => {
-            window.removeEventListener(
-                'mousemove',
-                handleMouseMove
-            );
-        };
-    }, []);
-
-    useEffect(() => {
-        writeText(subtitles[index]);
-    }, [typewrite]);
-
-    function handleMouseMove(e: MouseEvent) {
-        console.log(addBallRef.current);
+    const handleMouseMove = useCallback((e: MouseEvent) => {
         setTimeout(() => {
-            var range = 1;
-            var sizeInt = 30;
-            var size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
-            var left = "left: " + getRandomInt(e.clientX - range - sizeInt, e.clientX + range) + "px;";
-            var top = "top: " + getRandomInt(e.clientY - range - sizeInt, e.clientY + range) + "px;";
-            var ball = document.createElement("div");
+            const range = 1;
+            const sizeInt = 30;
+            const size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
+            const left = "left: " + getRandomInt(e.clientX - range - sizeInt, e.clientX + range) + "px;";
+            const top = "top: " + getRandomInt(e.clientY - range - sizeInt, e.clientY + range) + "px;";
+            const ball = document.createElement("div");
 
             ball.style.cssText = size + left + top;
             ball.className = "ball";
@@ -65,7 +58,23 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
                 }
             }
         }, 100);
-    };
+    }, [parent]);
+
+    useEffect(() => {
+        window.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            window.removeEventListener(
+                'mousemove',
+                handleMouseMove
+            );
+        };
+    }, [handleMouseMove]);
+
+    useEffect(() => {
+        writeText(subtitles[index]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     async function writeText(text: string) {
         if (typewrite.current) {
@@ -74,7 +83,8 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
                     typewrite.current.innerHTML += text.charAt(i);
                 await sleep(50);
             }
-            setTimeout(eraseText, 3000, text);
+            await sleep(2000);
+            eraseText(text);
         }
     }
 
@@ -86,7 +96,8 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
                 await sleep(30);
             }
             index++;
-            setTimeout(writeText, 1000, subtitles[index % subtitles.length]);
+            await sleep(1000);
+            writeText(subtitles[index % subtitles.length]);
         }
     }
 
@@ -97,14 +108,20 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
     return (
-        <div className="content">
+        <div className="hero-container">
+            <div className="avatar">
+                <img src={currentAvatar} alt="avatar" />
+            </div>
+            <div className="content">
             <h1>SWAN FRERE</h1>
             <p ref={typewrite}></p>
             <div className="actions">
-                <a className="hire" href=""><span>Hire Me<i><FontAwesomeIcon icon={faArrowRight} /></i></span></a>
+                <a className="hire" href=""><span><i><FontAwesomeIcon icon={faSuitcase} /></i>Hire Me</span></a>
                 <a className="explore" href=""><span>Explore<i><FontAwesomeIcon icon={faArrowRight} /></i></span></a>
             </div>
         </div>
+        </div>
+        
     );
 }
 

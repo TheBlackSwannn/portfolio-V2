@@ -1,6 +1,6 @@
 import Button from "./Button";
 import Navbar from "./Navbar";
-import "./Header.css";
+import "./Header.scss";
 
 function Header() {
     return (

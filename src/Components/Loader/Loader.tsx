@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import './Loader.css';
+import './Loader.scss';
 
 function Loader() {
     const loaderRef = useRef(null);

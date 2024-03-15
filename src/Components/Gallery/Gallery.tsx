@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import useWindowDimensions from '../../Hooks/getWindowDimensions';
-import './Gallery.css';
+import './Gallery.scss';
 
 function Gallery({ index, title, images, technos, isOdd = false, scroll, setScroll }: { index: number, title: string, images: Array<string>, technos: Array<Techno>,isOdd: boolean, scroll: boolean, setScroll: (scroll: boolean) => void }) {
     const galleryRef = useRef<HTMLDivElement>(null);

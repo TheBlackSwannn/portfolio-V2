@@ -18,21 +18,21 @@
     font-size: 16px;
     animation: 5s linear fade-loader;
     animation-iteration-count: 1;
-}
 
-.loader svg {
-    text-transform: capitalize;
-    width: 20em;
-    font-weight: 700;
-}
+    svg {
+        text-transform: capitalize;
+        width: 20em;
+        font-weight: 700;
 
-.loader svg text.text-up,
-.loader svg text.text-down {
-    font-size: 5rem;
-    stroke-width: 2;
-    letter-spacing: -6px;
-    animation: 5s linear animate-stroke;
-    animation-iteration-count: 1;
+        .text-up,
+        .text-down {
+            font-size: 5rem;
+            stroke-width: 2;
+            letter-spacing: -6px;
+            animation: 5s linear animate-stroke;
+            animation-iteration-count: 1;
+        }
+    }
 }
 
 @keyframes animate-stroke {
