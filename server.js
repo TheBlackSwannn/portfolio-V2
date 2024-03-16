@@ -1,10 +1,11 @@
 import fs from 'node:fs/promises'
 import express from 'express'
+import process from 'node:process';
 
 // Constants
-const isProduction = true // Set to `true` to run in production mode
-const port = 5173
-const base = '/'
+const isProduction = process.env.MODE === 'production';
+const port = process.env.PORT || 5173
+const base = process.env.BASE || '/'
 
 // Cached production assets
 const templateHtml = isProduction
@@ -38,7 +39,6 @@ if (!isProduction) {
 app.use('*', async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, '')
-
     let template
     let render
     if (!isProduction) {
@@ -54,8 +54,9 @@ app.use('*', async (req, res) => {
     const rendered = await render(url, ssrManifest)
 
     const html = template
-      .replace(`<!--app-head-->`, rendered.head ?? '')
-      .replace(`<!--app-html-->`, rendered.html ?? '')
+      .replace(`<!--app-html-->`, rendered ?? '')
+
+    console.log(html)
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {

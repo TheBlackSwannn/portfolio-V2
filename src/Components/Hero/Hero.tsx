@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faSuitcase } from '@fortawesome/free-solid-svg-icons'
 import './Hero.scss'
@@ -9,6 +9,7 @@ import av3 from '../../assets/av3.png'
 
 function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     const [addBall, _setAddBall] = useState(false);
+    const [currentAvatar, setCurrentAvatar] = useState('');
 
     const typewrite = useRef<HTMLParagraphElement>(null);
     const addBallRef = useRef(addBall);
@@ -18,10 +19,11 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
         _setAddBall(value);
     }
 
-    const currentAvatar = useMemo(() => {
+    useEffect(() => {
         const avatars = [av1, av2, av3];
-        return avatars[Math.floor(Math.random() * 15) % avatars.length];
-    }, []);
+        setCurrentAvatar(avatars[Math.floor(Math.random() * 15) % avatars.length]);
+    }
+    , []);
 
     const subtitles = [
         'Fullstack Web Developer',
