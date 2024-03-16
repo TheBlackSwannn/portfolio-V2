@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import express from 'express'
 
 // Constants
-const isProduction = false // Set to `true` to run in production mode
+const isProduction = true // Set to `true` to run in production mode
 const port = 5173
 const base = '/'
 
