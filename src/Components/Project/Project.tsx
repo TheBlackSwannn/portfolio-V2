@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import useWindowDimensions from '../../Hooks/getWindowDimensions';
 import './Project.scss';
+import useWindowDimensions from '../../Hooks/useWindowDimensions';
+
+
 
 function Project({ index, title, images, technos, isOdd = false, scroll, setScroll }: { index: number, title: string, images: Array<string>, technos: Array<Techno>,isOdd: boolean, scroll: boolean, setScroll: (scroll: boolean) => void }) {
     const projectRef = useRef<HTMLDivElement>(null);
