@@ -2,9 +2,12 @@ import Link, { LinkProps } from "./Link"
 
 interface NavbarProps {
     links: LinkProps[];
+    locale: string;
+    setLocale: (locale: string) => void;
 }
 
-function Navbar({ links }: NavbarProps) {
+function Navbar({ links, locale, setLocale }: NavbarProps) {
+    console.log(locale)
     return (
         <nav>
             <ul>
@@ -13,6 +16,10 @@ function Navbar({ links }: NavbarProps) {
                         <Link label={link.label} href={link.href} target={link.target} />
                     </li>
                 ))}
+                <li className="locale">
+                    <button onClick={() => setLocale('fr')}>FR</button>
+                    <button onClick={() => setLocale('en')}>EN</button>
+                </li>
             </ul>
         </nav>
     );

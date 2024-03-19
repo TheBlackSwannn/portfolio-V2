@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import anim_bg from "../assets/anim_bg.mp4";
@@ -6,6 +6,7 @@ import './Pages.css';
 
 function Layout() {
     const video = useRef<HTMLVideoElement>(null);
+    const [locale, setLocale] = useState('en');
 
     useEffect(() => {
         if (video.current) {
@@ -15,11 +16,11 @@ function Layout() {
 
     return (
         <>
-            <Header />
+            <Header locale={locale} setLocale={setLocale} />
             <video ref={video} autoPlay muted loop id="myVideo">
                 <source src={anim_bg} type="video/mp4" />
             </video>
-            <Outlet />
+            <Outlet context={locale} />
         </>
     );
 }

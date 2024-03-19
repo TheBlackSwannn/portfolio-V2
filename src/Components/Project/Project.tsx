@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import './Project.scss';
 import useWindowDimensions from '../../Hooks/useWindowDimensions';
+import './Project.scss';
 
 
 
-function Project({ index, title, description, note = null, link, images, technos, isOdd = false, scroll, setScroll }: { index: number, title: string, description: string, note: string|null, link: string, images: Array<string>, technos: Array<Techno>,isOdd: boolean, scroll: boolean, setScroll: (scroll: boolean) => void }) {
+function Project({ project, scroll, setScroll }: { project: Project, scroll: boolean, setScroll: (scroll: boolean) => void }) {
     const projectRef = useRef<HTMLDivElement>(null);
     const { height } = useWindowDimensions();
     const [isVisible, setIsVisible] = useState(false);
@@ -27,29 +27,29 @@ function Project({ index, title, description, note = null, link, images, technos
 
     return (
         <div ref={projectRef} className="project" style={{
-            opacity: !isVisible && index !== 0 ? 0 : 1,
+            opacity: !isVisible && project.index !== 0 ? 0 : 1,
             position: 'relative',
-            left: !isVisible && index !== 0 ? (isOdd ? '-100px' : '100px') : 0,
+            left: !isVisible && project.index !== 0 ? (project.isOdd ? '-100px' : '100px') : 0,
             transition: 'all 0.5s ease-in-out',
         }}>
             <div className='title'>
-                <div className="img-wrapper" tabIndex={index}>
-                    {images.map((image, i) => <span key={i}><img src={image} alt="" /></span>)}
+                <div className="img-wrapper" tabIndex={project.index}>
+                    {project.images.map((image, i) => <span key={i}><img src={image} alt="" /></span>)}
                 </div>
-                <h3>{title}</h3>
+                <h3>{project.title}</h3>
             </div>
             <div className="caption">
                 <p>
-                    {description}
-                    {note && <>
+                    {project.description}
+                    {project.note && <>
                         <br />
-                        <i>{note}</i>
+                        <i>{project.note}</i>
                     </>}
                 </p>
-                <a className={('#' === link ? 'disabled ' : '') + "link"} href={link} target={'#' === link ? '' : 'blank'}><span>Visit</span></a>
+                <a className={('#' === project.link ? 'disabled ' : '') + "link"} href={project.link} target={'#' === project.link ? '' : 'blank'}><span>Visit</span></a>
                 <div className="technos">
                     <ul>
-                        {technos.map((techno, i) => <li key={i} style={{ backgroundColor: techno.color }}>{techno.name}</li>)}
+                        {project.technos.map((techno, i) => <li key={i} style={{ backgroundColor: techno.color }}>{techno.name}</li>)}
                     </ul>
                 </div>
             </div>

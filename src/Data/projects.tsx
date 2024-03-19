@@ -16,8 +16,6 @@ const projects = [
                 { name: 'Sass', color: '#9b2761' },
             ],
             isOdd: false,
-            scroll: false,
-            setScroll: () => { },
         },
         {
             index: 1,
@@ -34,8 +32,6 @@ const projects = [
                 { name: 'React', color: '#4aa2ed' },
             ],
             isOdd: true,
-            scroll: false,
-            setScroll: () => { },
         },
         {
             index: 2,
@@ -54,8 +50,6 @@ const projects = [
                 { name: 'Firebase', color: '#b86404' },
             ],
             isOdd: false,
-            scroll: false,
-            setScroll: () => { },
         },
         {
             index: 3,
@@ -77,8 +71,6 @@ const projects = [
                 { name: 'Docker', color: '#0757ad' },
             ],
             isOdd: true,
-            scroll: false,
-            setScroll: () => { },
         },
     ];
 
