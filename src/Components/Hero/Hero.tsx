@@ -6,6 +6,7 @@ import './Hero.scss'
 import av1 from '../../assets/av1.png'
 import av2 from '../../assets/av2.png'
 import av3 from '../../assets/av3.png'
+import { NavLink } from "react-router-dom";
 
 function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     const [addBall, _setAddBall] = useState(false);
@@ -118,8 +119,8 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
             <h1>SWAN FRERE</h1>
             <p ref={typewrite}></p>
             <div className="actions">
-                <a className="hire" href=""><span><i><FontAwesomeIcon icon={faSuitcase} /></i>Hire Me</span></a>
-                <a className="explore" href=""><span>Explore<i><FontAwesomeIcon icon={faArrowRight} /></i></span></a>
+                <a className="hire" href="https://www.linkedin.com/in/swan-frere/" target="blank"><span><i><FontAwesomeIcon icon={faSuitcase} /></i>Hire Me</span></a>
+                <NavLink className="explore" to="/projects"><span>Explore<i><FontAwesomeIcon icon={faArrowRight} /></i></span></NavLink>
             </div>
         </div>
         </div>

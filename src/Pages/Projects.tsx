@@ -10,7 +10,7 @@ function Projects( {projects}: { projects: Array<Project> } ) {
     return (
         <div className="main">
             <div className="projects" onScroll={() => setScroll(true)}>
-                {projects.map((projects, i) => <Project key={i} index={projects.index} title={projects.title} images={projects.images} technos={projects.technos} isOdd={projects.isOdd} scroll={scroll} setScroll={setScroll} />)}
+                {projects.map((project, i) => <Project key={i} index={project.index} title={project.title} description={project.description} note={project.note} link={project.link} images={project.images} technos={project.technos} isOdd={project.isOdd} scroll={scroll} setScroll={setScroll} />)}
             </div>
         </div>
     );

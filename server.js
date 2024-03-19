@@ -56,8 +56,6 @@ app.use('*', async (req, res) => {
     const html = template
       .replace(`<!--app-html-->`, rendered ?? '')
 
-    console.log(html)
-
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {
     vite?.ssrFixStacktrace(e)

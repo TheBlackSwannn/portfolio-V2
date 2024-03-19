@@ -30,11 +30,14 @@ video {
     margin-top: 7rem;
     overflow-x: scroll;
 
-    font-family: "Ojuju", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
     text-transform: uppercase;
+
+    @media (max-width: 600px) {
+        margin-top: 5rem;
+    }
 }
 
 .projects::-webkit-scrollbar {

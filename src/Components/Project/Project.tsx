@@ -4,7 +4,7 @@ import useWindowDimensions from '../../Hooks/useWindowDimensions';
 
 
 
-function Project({ index, title, images, technos, isOdd = false, scroll, setScroll }: { index: number, title: string, images: Array<string>, technos: Array<Techno>,isOdd: boolean, scroll: boolean, setScroll: (scroll: boolean) => void }) {
+function Project({ index, title, description, note = null, link, images, technos, isOdd = false, scroll, setScroll }: { index: number, title: string, description: string, note: string|null, link: string, images: Array<string>, technos: Array<Techno>,isOdd: boolean, scroll: boolean, setScroll: (scroll: boolean) => void }) {
     const projectRef = useRef<HTMLDivElement>(null);
     const { height } = useWindowDimensions();
     const [isVisible, setIsVisible] = useState(false);
@@ -40,8 +40,13 @@ function Project({ index, title, images, technos, isOdd = false, scroll, setScro
             </div>
             <div className="caption">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis tempora distinctio ratione ullam illo eos quas placeat, odit blanditiis perferendis consequatur assumenda laudantium odio repellendus porro error quaerat eum provident.
+                    {description}
+                    {note && <>
+                        <br />
+                        <i>{note}</i>
+                    </>}
                 </p>
+                <a className={('#' === link ? 'disabled ' : '') + "link"} href={link} target={'#' === link ? '' : 'blank'}><span>Visit</span></a>
                 <div className="technos">
                     <ul>
                         {technos.map((techno, i) => <li key={i} style={{ backgroundColor: techno.color }}>{techno.name}</li>)}
