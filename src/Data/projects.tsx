@@ -9,9 +9,9 @@ const projects: Projects = {
             note: null,
             link: 'http://localhost:5173/',
             images: [
-                '/images/portfolio1.png',
-                '/images/portfolio2.png',
-                '/images/portfolio3.png',
+                '/images/portfolio1.webp',
+                '/images/portfolio2.webp',
+                '/images/portfolio3.webp',
             ],
             technos: [
                 { name: 'React', color: '#4aa2ed' },
@@ -27,9 +27,9 @@ const projects: Projects = {
             note: "Le projet est en cours de développement.",
             link: 'https://davy-corpet.fr/',
             images: [
-                '/images/davy1.png',
-                '/images/davy2.png',
-                '/images/davy3.png',
+                '/images/davy1.webp',
+                '/images/davy2.webp',
+                '/images/davy3.webp',
             ],
             technos: [
                 { name: 'React', color: '#4aa2ed' },
@@ -43,9 +43,9 @@ const projects: Projects = {
             note: "Malheureusement non déployé pour le moment.",
             link: '#',
             images: [
-                '/images/roxy1.png',
-                '/images/roxy2.png',
-                '/images/roxy3.png',
+                '/images/roxy1.webp',
+                '/images/roxy2.webp',
+                '/images/roxy3.webp',
             ],
             technos: [
                 { name: 'Javascript', color: '#9ba103' },
@@ -61,9 +61,9 @@ const projects: Projects = {
             note: "Non déployé car projet scolaire.",
             link: '#',
             images: [
-                '/images/swan1.png',
-                '/images/swan2.png',
-                '/images/swan3.png',
+                '/images/swan1.webp',
+                '/images/swan2.webp',
+                '/images/swan3.webp',
             ],
             technos: [
                 { name: 'Java', color: '#010d87' },
@@ -84,9 +84,9 @@ const projects: Projects = {
             note: null,
             link: 'http://localhost:5173/',
             images: [
-                '/images/portfolio1.png',
-                '/images/portfolio2.png',
-                '/images/portfolio3.png',
+                '/images/portfolio1.webp',
+                '/images/portfolio2.webp',
+                '/images/portfolio3.webp',
             ],
             technos: [
                 { name: 'React', color: '#4aa2ed' },
@@ -102,9 +102,9 @@ const projects: Projects = {
             note: "The project is under development.",
             link: 'https://davy-corpet.fr/',
             images: [
-                '/images/davy1.png',
-                '/images/davy2.png',
-                '/images/davy3.png',
+                '/images/davy1.webp',
+                '/images/davy2.webp',
+                '/images/davy3.webp',
             ],
             technos: [
                 { name: 'React', color: '#4aa2ed' },
@@ -118,9 +118,9 @@ const projects: Projects = {
             note: "Unfortunately not deployed at the moment.",
             link: '#',
             images: [
-                '/images/roxy1.png',
-                '/images/roxy2.png',
-                '/images/roxy3.png',
+                '/images/roxy1.webp',
+                '/images/roxy2.webp',
+                '/images/roxy3.webp',
             ],
             technos: [
                 { name: 'Javascript', color: '#9ba103' },
@@ -136,9 +136,9 @@ const projects: Projects = {
             note: "Not deployed because it's a school project.",
             link: '#',
             images: [
-                '/images/swan1.png',
-                '/images/swan2.png',
-                '/images/swan3.png',
+                '/images/swan1.webp',
+                '/images/swan2.webp',
+                '/images/swan3.webp',
             ],
             technos: [
                 { name: 'Java', color: '#010d87' },

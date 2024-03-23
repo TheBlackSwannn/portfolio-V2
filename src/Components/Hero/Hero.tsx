@@ -6,9 +6,9 @@ import { faArrowRight, faSuitcase } from '@fortawesome/free-solid-svg-icons';
 import translations from './translations'
 import './Hero.scss'
 
-import av1 from '../../assets/av1.png'
-import av2 from '../../assets/av2.png'
-import av3 from '../../assets/av3.png'
+import av1 from '../../assets/av1.webp'
+import av2 from '../../assets/av2.webp'
+import av3 from '../../assets/av3.webp'
 
 function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     const [addBall, _setAddBall] = useState(false);

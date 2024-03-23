@@ -27,6 +27,19 @@ function Project({ project, scroll, setScroll }: { project: ProjectType, scroll:
         }
     }, [scroll]);
 
+    const seeFull = (e: React.MouseEvent<HTMLImageElement>) => {
+        e.preventDefault();
+        const img = e.target as HTMLImageElement;
+        const full = document.createElement('div');
+        full.className = 'full-image';
+        full.style.cssText = 'background-image: url(' + img.src + ');';
+
+        full.onclick = function () {
+            full.remove();
+        };
+        document.body.appendChild(full);
+    }
+
     return (
         <div ref={projectRef} className="project" style={{
             opacity: !isVisible && project.index !== 0 ? 0 : 1,
@@ -37,7 +50,11 @@ function Project({ project, scroll, setScroll }: { project: ProjectType, scroll:
         }}>
             <div className='title'>
                 <div className="img-wrapper" tabIndex={project.index}>
-                    {project.images.map((image: string, i: number) => <span key={i}><img src={image} alt="" /></span>)}
+                    {project.images.map((image: string, i: number) =>
+                    <span tabIndex={i} key={i}>
+                        <img src={image} alt="" onClick={(e) => seeFull(e)} />
+                    </span>
+                    )}
                 </div>
                 <h3>{project.title}</h3>
             </div>
