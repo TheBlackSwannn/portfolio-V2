@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faSuitcase } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from "react-router-dom";
+import { useLocale } from "../../Pages/Layout";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faSuitcase } from '@fortawesome/free-solid-svg-icons';
+import translations from './translations'
 import './Hero.scss'
 
 import av1 from '../../assets/av1.png'
 import av2 from '../../assets/av2.png'
 import av3 from '../../assets/av3.png'
-import { NavLink, useOutletContext } from "react-router-dom";
 
 function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     const [addBall, _setAddBall] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState('');
-    const locale = useOutletContext();
+    const { locale } = useLocale();
 
     const typewrite = useRef<HTMLParagraphElement>(null);
     const addBallRef = useRef(addBall);
@@ -21,19 +23,9 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
         _setAddBall(value);
     }
 
-    useEffect(() => {
-        const avatars = [av1, av2, av3];
-        setCurrentAvatar(avatars[Math.floor(Math.random() * 15) % avatars.length]);
-    }
-    , []);
 
-    const subtitles = [
-        'Fullstack Web Developer',
-        'ThreeJS Enthusiast',
-        'React x NextJS Developer',
-        'Bug Bounty Hunter',
-        'Open Source Contributor'
-    ];
+    const enSubtitles = Object.values(translations.en.subtitles);
+    const frSubtitles = Object.values(translations.fr.subtitles);
 
     let index = 0;
 
@@ -76,24 +68,23 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
     }, [handleMouseMove]);
 
     useEffect(() => {
-        writeText(subtitles[index]);
+        const avatars = [av1, av2, av3];
+        setCurrentAvatar(avatars[Math.floor(Math.random() * 15) % avatars.length]);
+        writeText();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    async function writeText(text: string) {
-        if (typewrite.current) {
+    async function writeText() {
+        const locale = typewrite.current?.className
+        const text = locale === 'fr' ? frSubtitles[index % frSubtitles.length] : enSubtitles[index % enSubtitles.length];
+        if (typewrite.current && text) {
             for (let i = 0; i < text.length; i++) {
                 if (typewrite.current)
                     typewrite.current.innerHTML += text.charAt(i);
                 await sleep(50);
             }
             await sleep(2000);
-            eraseText(text);
-        }
-    }
 
-    async function eraseText(text: string) {
-        if (typewrite.current) {
             for (let i = 0; i <= text.length; i++) {
                 if (typewrite.current)
                     typewrite.current.innerHTML = text.substring(0, text.length - i);
@@ -101,7 +92,7 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
             }
             index++;
             await sleep(1000);
-            writeText(subtitles[index % subtitles.length]);
+            writeText();
         }
     }
 
@@ -118,7 +109,7 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
             </div>
             <div className="content">
             <h1>SWAN FRERE</h1>
-            <p ref={typewrite}></p>
+            <p ref={typewrite} className={locale}></p>
             <div className="actions">
                 <a className="hire" href="https://www.linkedin.com/in/swan-frere/" target="blank"><span><i><FontAwesomeIcon icon={faSuitcase} /></i>{locale === 'fr' ? 'Me Recruter' : 'Hire Me'}</span></a>
                 <NavLink className="explore" to="/projects"><span>Explore<i><FontAwesomeIcon icon={faArrowRight} /></i></span></NavLink>

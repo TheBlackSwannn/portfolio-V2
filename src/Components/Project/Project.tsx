@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import useWindowDimensions from '../../Hooks/useWindowDimensions';
 import './Project.scss';
+import Techno from '../../Shared/Interfaces/techno.interface';
+import ProjectType from '../../Shared/Interfaces/project.interface';
 
 
 
-function Project({ project, scroll, setScroll }: { project: Project, scroll: boolean, setScroll: (scroll: boolean) => void }) {
+function Project({ project, scroll, setScroll }: { project: ProjectType, scroll: boolean, setScroll: (scroll: boolean) => void }) {
     const projectRef = useRef<HTMLDivElement>(null);
     const { height } = useWindowDimensions();
     const [isVisible, setIsVisible] = useState(false);
@@ -30,11 +32,12 @@ function Project({ project, scroll, setScroll }: { project: Project, scroll: boo
             opacity: !isVisible && project.index !== 0 ? 0 : 1,
             position: 'relative',
             left: !isVisible && project.index !== 0 ? (project.isOdd ? '-100px' : '100px') : 0,
+            flexDirection: project.isOdd ? 'row-reverse' : 'row',
             transition: 'all 0.5s ease-in-out',
         }}>
             <div className='title'>
                 <div className="img-wrapper" tabIndex={project.index}>
-                    {project.images.map((image, i) => <span key={i}><img src={image} alt="" /></span>)}
+                    {project.images.map((image: string, i: number) => <span key={i}><img src={image} alt="" /></span>)}
                 </div>
                 <h3>{project.title}</h3>
             </div>
@@ -49,7 +52,7 @@ function Project({ project, scroll, setScroll }: { project: Project, scroll: boo
                 <a className={('#' === project.link ? 'disabled ' : '') + "link"} href={project.link} target={'#' === project.link ? '' : 'blank'}><span>Visit</span></a>
                 <div className="technos">
                     <ul>
-                        {project.technos.map((techno, i) => <li key={i} style={{ backgroundColor: techno.color }}>{techno.name}</li>)}
+                        {project.technos.map((techno: Techno, i: number) => <li key={i} style={{ backgroundColor: techno.color }}>{techno.name}</li>)}
                     </ul>
                 </div>
             </div>

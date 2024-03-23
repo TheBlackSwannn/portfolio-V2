@@ -1,13 +1,13 @@
 import Link, { LinkProps } from "./Link"
+import fr from '../../assets/fr.svg'
+import us from '../../assets/us.svg'
 
 interface NavbarProps {
     links: LinkProps[];
-    locale: string;
     setLocale: (locale: string) => void;
 }
 
-function Navbar({ links, locale, setLocale }: NavbarProps) {
-    console.log(locale)
+function Navbar({ links, setLocale }: NavbarProps) {
     return (
         <nav>
             <ul>
@@ -17,8 +17,10 @@ function Navbar({ links, locale, setLocale }: NavbarProps) {
                     </li>
                 ))}
                 <li className="locale">
-                    <button onClick={() => setLocale('fr')}>FR</button>
-                    <button onClick={() => setLocale('en')}>EN</button>
+                        <img src={fr} alt="fr" onClick={() => setLocale('fr')}/>
+                </li>
+                <li className="locale">
+                        <img src={us} alt="us" onClick={() => setLocale('en')}/>
                 </li>
             </ul>
         </nav>

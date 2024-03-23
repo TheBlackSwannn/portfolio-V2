@@ -1,4 +1,7 @@
-const projects = [
+import Projects from "../Shared/Interfaces/projects.interface";
+
+const projects: Projects = {
+    fr: [
         {
             index: 0,
             title: 'Portfolio',
@@ -72,6 +75,82 @@ const projects = [
             ],
             isOdd: true,
         },
-    ];
+    ],
+    en: [
+        {
+            index: 0,
+            title: 'Portfolio',
+            description: "Personal portfolio made with ReactJS - Typescript framework, rendered with SSR (Server-Side Rendering) technology. The CSS is fully customized (no Tailwind or Bootstrap) and managed with a SASS compiler. The goal of this project is to open a small window on me and my work, by exposing my main achievements.",
+            note: null,
+            link: 'http://localhost:5173/',
+            images: [
+                '/images/portfolio1.png',
+                '/images/portfolio2.png',
+                '/images/portfolio3.png',
+            ],
+            technos: [
+                { name: 'React', color: '#4aa2ed' },
+                { name: 'TypeScript', color: '#1f5da1' },
+                { name: 'Sass', color: '#9b2761' },
+            ],
+            isOdd: false,
+        },
+        {
+            index: 1,
+            title: 'Davy Corpet',
+            description: "Showcase site for a professional in masonry and aggregate. Made with ReactJS, the site is fully responsive and optimized for SEO. The goal of this project is to present the company's services, past achievements and contact details.",
+            note: "The project is under development.",
+            link: 'https://davy-corpet.fr/',
+            images: [
+                '/images/davy1.png',
+                '/images/davy2.png',
+                '/images/davy3.png',
+            ],
+            technos: [
+                { name: 'React', color: '#4aa2ed' },
+            ],
+            isOdd: true,
+        },
+        {
+            index: 2,
+            title: "Roxy's Adventures",
+            description: "Educational game for learning English. Made with the ThreeJS library, the game is entirely in 3D and offers mini-games to learn English in a fun way. The goal of this project is to offer an alternative to traditional learning methods. We play as Roxy, a little fox who travels the world to learn English.",
+            note: "Unfortunately not deployed at the moment.",
+            link: '#',
+            images: [
+                '/images/roxy1.png',
+                '/images/roxy2.png',
+                '/images/roxy3.png',
+            ],
+            technos: [
+                { name: 'Javascript', color: '#9ba103' },
+                { name: 'ThreeJS', color: '#3aa103' },
+                { name: 'Firebase', color: '#b86404' },
+            ],
+            isOdd: false,
+        },
+        {
+            index: 3,
+            title: "S.W.A.N.",
+            description: "Sky Weather Analyisis Navigator is a school project carried out individually with the aim of offering a web application for visualizing real-time weather data. The application uses the OpenWeather api which allows to display different metrics such as temperature, humidity, wind, rain, snow, etc. The application works with a back part in Spring Boot and a front in React. All powered by a PostgreSQL database and a redis cache service. The application is deployed with Docker.",
+            note: "Not deployed because it's a school project.",
+            link: '#',
+            images: [
+                '/images/swan1.png',
+                '/images/swan2.png',
+                '/images/swan3.png',
+            ],
+            technos: [
+                { name: 'Java', color: '#010d87' },
+                { name: 'Spring Boot', color: '#170187' },
+                { name: 'React', color: '#4aa2ed' },
+                { name: 'PostgreSQL', color: '#018787' },
+                { name: 'Redis', color: '#470909' },
+                { name: 'Docker', color: '#0757ad' },
+            ],
+            isOdd: true,
+        },
+    ]
+};
 
 export default projects;

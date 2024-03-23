@@ -2,7 +2,7 @@ import Button from "./Button";
 import Navbar from "./Navbar";
 import "./Header.scss";
 
-function Header( { locale, setLocale }: { locale: string, setLocale: (locale: string) => void }) {
+function Header({ setLocale }: { setLocale: (locale: string) => void }) {
     return (
         <header>
             <Navbar links={
@@ -11,7 +11,7 @@ function Header( { locale, setLocale }: { locale: string, setLocale: (locale: st
                     { label: "Projects", href: "/projects", target: "_self" },
                     { label: "About", href: "/about", target: "_self" },
                 ]
-            } locale={locale} setLocale={setLocale} />
+            } setLocale={setLocale} />
             <Button href="mailto:frereswan@gmail.com" />
         </header>
     );

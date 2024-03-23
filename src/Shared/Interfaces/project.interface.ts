@@ -1,3 +1,5 @@
+import Techno from "./techno.interface";
+
 interface Project {
     index: number;
     title: string;
@@ -8,3 +10,5 @@ interface Project {
     technos: Array<Techno>;
     isOdd: boolean;
 }
+
+export default Project;

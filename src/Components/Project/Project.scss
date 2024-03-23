@@ -10,16 +10,6 @@
     color: #fff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-    &:nth-child(odd) {
-        flex-direction: row-reverse;
-        margin-right: auto;
-    }
-
-    &:nth-child(even) {
-        flex-direction: row;
-        margin-left: auto;
-    }
-
     .title {
         .img-wrapper {
             min-width: 400px;

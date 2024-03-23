@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import anim_bg from "../assets/anim_bg.mp4";
-import './Pages.css';
+import './Pages.scss';
 
-function Layout() {
+type ContextType = { locale: string };
+
+export default function Layout() {
     const video = useRef<HTMLVideoElement>(null);
-    const [locale, setLocale] = useState('en');
+    const [locale, setlocale] = useState('fr');
 
     useEffect(() => {
         if (video.current) {
@@ -16,13 +18,15 @@ function Layout() {
 
     return (
         <>
-            <Header locale={locale} setLocale={setLocale} />
+            <Header setLocale={setlocale} />
             <video ref={video} autoPlay muted loop id="myVideo">
                 <source src={anim_bg} type="video/mp4" />
             </video>
-            <Outlet context={locale} />
+            <Outlet context={{ locale } satisfies ContextType} />
         </>
     );
 }
 
-export default Layout;
+export function useLocale() {
+    return useOutletContext<ContextType>();
+}

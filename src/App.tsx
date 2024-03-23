@@ -4,6 +4,7 @@ import Landing from "./Pages/Landing";
 import ErrorPage from "./Pages/ErrorPage";
 import Layout from "./Pages/Layout";
 import Projects from "./Pages/Projects";
+import About from "./Pages/About";
 import projects from "./Data/projects";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Landing />} />
         <Route path="/projects" element={<Projects projects={projects} />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>
