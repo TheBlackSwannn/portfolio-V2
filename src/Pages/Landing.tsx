@@ -8,8 +8,20 @@ const Landing = () => {
 
     useEffect(() => {
         const visited = localStorage.getItem('visited');
+        if (visited) {
+            const item = JSON.parse(visited);
+            const now = new Date().getTime();
+            if (now - item.date > 1000 * 60 * 60 * 24) {
+                localStorage.removeItem('visited');
+            }
+        }
+
         if (!visited) {
-            localStorage.setItem('visited', 'true');
+            const item = {
+                visited: true,
+                date: new Date().getTime()
+            }
+            localStorage.setItem('visited', JSON.stringify(item));
             setFirstVisit(true);
         }
     }, []);
