@@ -62,6 +62,33 @@ video {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        @media (max-width: 768px) {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .mobile-message {
+            display: none;
+
+            @media (max-width: 768px) {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                color: white;
+                background-color: #5a4e2d;
+                font-size: .8rem;
+                text-align: center;
+            }
+        }
+
+        .desktop-cv {
+            display: none;
+
+            @media (min-width: 769px) {
+                display: block;
+            }
+        }
     }
 }
 
