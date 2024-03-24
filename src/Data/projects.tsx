@@ -7,7 +7,7 @@ const projects: Projects = {
             title: 'Portfolio',
             description: "Portfolio personnel réalisé avec le framework ReactJS - Typescript, rendu avec technologie SSR (Server-Side Rendering). Le CSS est entièrement perosnnalisé (pas de Tailwind ou Bootstrap) et géré avec un compilateur SASS. L'objectif de ce projet est d'ouvrir une petite fenêtre sur moi et mon travail, en exposant mes principales réalisations.",
             note: null,
-            link: 'http://localhost:5173/',
+            link: 'http://swan-frere.fr/',
             images: [
                 '/images/portfolio1.webp',
                 '/images/portfolio2.webp',
@@ -82,7 +82,7 @@ const projects: Projects = {
             title: 'Portfolio',
             description: "Personal portfolio made with ReactJS - Typescript framework, rendered with SSR (Server-Side Rendering) technology. The CSS is fully customized (no Tailwind or Bootstrap) and managed with a SASS compiler. The goal of this project is to open a small window on me and my work, by exposing my main achievements.",
             note: null,
-            link: 'http://localhost:5173/',
+            link: 'http://swan-frere.fr/',
             images: [
                 '/images/portfolio1.webp',
                 '/images/portfolio2.webp',

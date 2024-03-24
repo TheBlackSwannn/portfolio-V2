@@ -1,0 +1,323 @@
+.cv {
+    position: relative;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #ff0000;
+
+    a {
+        text-decoration: none;
+        color: white;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        padding: 10px;
+        font-size: 1rem;
+        background-color: rgba(0, 0, 0, 0.384);
+        border-radius: 10px;
+        display: none;
+        transition: background-color .1s ease-in-out;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    }
+
+    h3 {
+        text-wrap: nowrap;
+    }
+
+    &:hover {
+        a {
+            display: block;
+        }
+    }
+
+    i {
+        margin-right: 10px;
+    }
+
+    aside {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3rem;
+        background-color: #072b0d;
+        padding-bottom: 2rem;
+
+        .photo {
+            padding-top: 1rem;
+            width: 70%;            
+            border-radius: 50%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+
+        .languages {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+
+            h3 {
+                margin: 0;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: .5rem;
+
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    justify-content: center;
+
+                   .title {
+                    font-size: 1rem;
+                    font-weight: 600;
+                   }
+
+                   .subtitle {
+                    font-size: .8rem;
+                    font-weight: 400;
+                    font-style: italic;
+                   }
+                }
+            }
+        }
+
+        .skills, .hobbies {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+
+            h3 {
+                margin: 0;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: .5rem;
+
+                li {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                   .title {
+                    font-size: 1rem;
+                    font-weight: 600;
+                   }
+                }
+            }
+        }
+    }
+
+    .vertical-container {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #ffbb00;
+        color: black;
+
+        .header {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #93b89b;
+            padding: 1rem 2rem;
+
+            .title {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                gap: .5rem;
+
+                h1 {
+                    margin: 0;
+                    text-transform: uppercase;
+                    text-align: left;
+                }
+
+                h2 {
+                    margin: 0;
+                    text-transform: capitalize;
+                    text-align: left;
+                    font-size: medium;
+                    font-weight: 400;
+                    font-style: italic;
+                    width: fit-content;
+                    padding-right: 1rem;
+                    padding-top: .5rem;
+                    border-top: 1px solid black;
+                }
+            }
+
+            .details {
+                ul {
+                    list-style-type: none;
+                    padding: 0 10px;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    gap: .5rem;
+
+                    li {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+
+                        i {
+                            display: block;
+                            text-align: center;
+                            font-size: 1rem;
+                            margin-right: 5px;
+                            width: 1rem;
+                            text-align: center;
+                        }
+
+                        span {
+                            display: block;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: flex-start;
+            background-color: #FFFFFF;
+            gap: 2rem;
+            padding: 1rem 2rem;
+
+            .work-experiences, .education {
+                h3 {
+                    margin: 0;
+                    margin-bottom: 1rem;
+                    text-transform: uppercase;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    gap: 1rem;
+
+                    li {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        justify-content: center;
+
+                        .title {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: flex-start;
+                            flex-wrap: wrap;
+                            gap: 1rem;
+                            row-gap: 0;
+                            font-size: 1rem;
+
+                            .job, .degree {
+                                font-weight: 600;
+                            }
+
+                            .company, .school {
+                                font-weight: 500;
+                            }
+
+                            .place {
+                                font-weight: 400;
+                            }
+
+                            .date {
+                                font-weight: 400;
+                                font-style: italic;
+                            }
+                        }
+
+                        .tasks {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: start;
+                            gap: .2rem;
+                            margin-top: .5rem;
+                            padding-left: 1rem;
+
+                            li {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+
+                                i {
+                                    display: block;
+                                    text-align: center;
+                                    font-size: 1rem;
+                                    margin-right: 5px;
+                                    width: 1rem;
+                                    text-align: center;
+                                }
+
+                                span {
+                                    display: block;
+                                    text-align: center;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

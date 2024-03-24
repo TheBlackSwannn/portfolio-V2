@@ -1,10 +1,10 @@
-import CV from '../Components/CV/CV';
+import Cv from '../Components/Cv/Cv';
 
 function About() {
             return (
                 <div className="main">
                     <div className="about">
-                       <CV />
+                       <Cv />
                     </div>
                 </div>
         );
