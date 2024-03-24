@@ -111,8 +111,8 @@ function Hero({ parent }: { parent: React.RefObject<HTMLDivElement> }) {
             <h1>SWAN FRERE</h1>
             <p ref={typewrite} className={locale}></p>
             <div className="actions">
-                <a className="hire" href="https://www.linkedin.com/in/swan-frere/" target="blank"><span><i><FontAwesomeIcon icon={faSuitcase} /></i>{locale === 'fr' ? 'Me Recruter' : 'Hire Me'}</span></a>
-                <NavLink className="explore" to="/projects"><span>Explore<i><FontAwesomeIcon icon={faArrowRight} /></i></span></NavLink>
+                <a className="hire" href="https://www.linkedin.com/in/swan-frere/" target="blank"><span><i><FontAwesomeIcon icon={faSuitcase} /></i>{translations[locale as keyof typeof translations].hire_me}</span></a>
+                <NavLink className="explore" to="/projects"><span>{translations[locale as keyof typeof translations].explore}<i><FontAwesomeIcon icon={faArrowRight} /></i></span></NavLink>
             </div>
         </div>
         </div>

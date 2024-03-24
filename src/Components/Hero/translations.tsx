@@ -6,7 +6,9 @@ const translations = {
             react_nextjs_developer: "React x NextJS Developer",
             bug_bounty_hunter: "Bug Bounty Hunter",
             open_source_contributor: "Open Source Contributor"
-        }
+        },
+        hire_me: "Hire Me",
+        explore: "Explore",
     },
     fr: {
         subtitles: {
@@ -15,7 +17,9 @@ const translations = {
             react_nextjs_developer: "Développeur React x NextJS",
             bug_bounty_hunter: "Exterminateur de bugs",
             open_source_contributor: "Contributeur Open Source"
-        }
+        },
+        hire_me: "Me Recruter",
+        explore: "Explorer",
     }
 }
 
