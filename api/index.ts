@@ -2,9 +2,10 @@ import fs from 'node:fs/promises'
 import express from 'express'
 import process from 'node:process';
 import dotenv from 'dotenv';
+import { ViteDevServer } from 'vite';
 dotenv.config();
 
-// Constants
+// Constant
 const isProduction = process.env.MODE === 'production';
 const port = process.env.PORT || 5173
 const base = process.env.BASE || '/'
@@ -21,7 +22,7 @@ const ssrManifest = isProduction
 const app = express()
 
 // Add Vite or respective production middlewares
-let vite
+let vite: ViteDevServer
 if (!isProduction) {
   const { createServer } = await import('vite')
   vite = await createServer({
@@ -58,10 +59,10 @@ app.use('*', async (req, res) => {
     const html = template.replace(`<!--app-html-->`, rendered)
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
-  } catch (e) {
-    vite?.ssrFixStacktrace(e)
-    console.log(e.stack)
-    res.status(500).end(e.stack)
+  } catch (e: unknown) {
+    vite?.ssrFixStacktrace(e as Error);
+    console.log((e as Error).stack);
+    res.status(500).end((e as Error).stack);
   }
 })
 
@@ -69,3 +70,5 @@ app.use('*', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`)
 })
+
+export default app
