@@ -1,6 +1,8 @@
 import fs from 'node:fs/promises'
 import express from 'express'
 import process from 'node:process';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Constants
 const isProduction = process.env.MODE === 'production';
@@ -51,10 +53,9 @@ app.use('*', async (req, res) => {
       render = (await import('./dist/server/entry-server.js')).render
     }
 
-    const rendered = await render(url, ssrManifest)
+    const rendered = await render('/'+url, ssrManifest)
 
-    const html = template
-      .replace(`<!--app-html-->`, rendered ?? '')
+    const html = template.replace(`<!--app-html-->`, rendered)
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {
