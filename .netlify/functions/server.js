@@ -2,6 +2,7 @@ import fs from 'node:fs/promises'
 import express from 'express'
 import process from 'node:process';
 import dotenv from 'dotenv';
+import serverless from "serverless-http";
 dotenv.config();
 
 // Constants
@@ -17,8 +18,8 @@ const ssrManifest = isProduction
   ? await fs.readFile('./dist/client/.vite/ssr-manifest.json', 'utf-8')
   : undefined
 
-// Create http server
-const app = express()
+
+const app = express();
 
 // Add Vite or respective production middlewares
 let vite
@@ -50,7 +51,7 @@ app.use('*', async (req, res) => {
       render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render
     } else {
       template = templateHtml
-      render = (await import('../dist/server/entry-server.js')).render
+      render = (await import('../../dist/server/entry-server.js')).render
     }
 
     const rendered = await render('/'+url, ssrManifest)
@@ -70,4 +71,4 @@ app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`)
 })
 
-export default app
+export const handler = serverless(app);
