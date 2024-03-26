@@ -3,9 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "index.ts",
   "scripts": {
-    "dev": "node server",
+    "dev": "node api/server.js",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
