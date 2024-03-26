@@ -9,8 +9,7 @@
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
     "preview": "cross-env NODE_ENV=production node server",
-    "start": "node server",
-    "production": "npm run build && npm run start"
+    "start": "node server"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
