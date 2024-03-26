@@ -16,6 +16,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@vitejs/plugin-react": "^4.2.1",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
@@ -27,7 +29,9 @@
     "react-router-dom": "^6.21.3",
     "sass": "^1.72.0",
     "sirv": "^2.0.4",
-    "sort-by": "^0.0.2"
+    "sort-by": "^0.0.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^5.0.2",
